@@ -4,6 +4,7 @@ class Student extends Person {
   double math;
   double phis;
   double chemical;
+
   Student({
     required super.id,
     required super.name,
@@ -11,18 +12,19 @@ class Student extends Person {
     this.phis = 0,
     this.chemical = 0,
   });
+
   Map<String, dynamic> toJson() {
     return {
-      'id': this.id ?? "",
-      'name': this.name ?? '',
-      'math': this.math ?? 0,
-      'phis': this.phis ?? 0,
-      'chemical': this.chemical ?? 0,
+      'id': id,
+      'name': name,
+      'math': math,
+      'phis': phis,
+      'chemical': chemical,
     };
   }
 
   factory Student.fromJson(Map<String, dynamic> json) {
-    return new Student(
+    return Student(
       id: json['id'] as String,
       name: json['name'] as String,
       math: (json['math'] as num).toDouble(),

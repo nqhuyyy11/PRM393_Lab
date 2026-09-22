@@ -6,6 +6,7 @@ class Product {
   String? image;
   String? description;
 
+  // 1. Constructor
   Product({
     required this.id,
     required this.name,
@@ -15,8 +16,9 @@ class Product {
     this.description,
   });
 
+  // 2. Chuyen doi tu Map (JSON) sang Object
   factory Product.fromJson(Map<String, dynamic> json) {
-    return new Product(
+    return Product(
       id: json["id"] as String,
       name: json["name"] as String,
       quantity: json["quantity"] as int,
@@ -26,6 +28,7 @@ class Product {
     );
   }
 
+  // 3. Chuyen doi tu Object sang Map (JSON)
   Map<String, dynamic> toJson() {
     return {
       "id": id,
@@ -37,6 +40,7 @@ class Product {
     };
   }
 
+  // 4. Ham sao chep/clone doi tuong (copyWith hoac copyTo)
   Product copyTo({
     String? id,
     String? name,
